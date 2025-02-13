@@ -1,0 +1,48 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
+name: Optimal Scheduler
+slug: optimal_scheduler
+
+description: Scheduler & optimizer add-on for smart grids for energy management and cost savings.
+version: "4.5"
+
+url: "https://github.com/NarcisPlan16/HA_Scheduler/tree/main/optimal_scheduler"
+init: false
+
+arch:
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+
+###############
+# Try to solve api issues
+homeassistant_api: true
+hassio_api: true
+
+###############
+map:
+  - share:rw
+
+options:
+  Consumer_asset_IDs: []
+  Generator_asset_IDs: []
+  Energy_Source_asset_IDs: []
+  Building_consumption_IDs: []
+  Building_generation_IDs: []
+  Simulation_code_directory: /config/OptimalScheduler/MySimulationCode
+  Classes_code_directory: /config/OptimalScheduler/MyClassesCode
+
+schema:
+  Consumer_asset_IDs: 
+    - match(^(.+)$) # TODO: Generate a new regex
+  Generator_asset_IDs:
+    - match(^(.+)$) # TODO: Generate a new regex
+  Energy_Source_asset_IDs:
+    - match(^(.+)$) # TODO: Generate a new regex
+  Building_consumption_IDs:
+    - match(^(.+)$) # TODO: Generate a new regex
+  Building_generation_IDs:
+    - match(^(.+)$) # TODO: Generate a new regex
+  Simulation_code_directory: str
+  Classes_code_directory: str
+

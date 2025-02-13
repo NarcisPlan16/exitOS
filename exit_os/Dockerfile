@@ -1,18 +1,16 @@
-# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
-
 FROM narcisplan/scheduler_addon:v2
 
 ENV PATH="${PATH}:/usr/lib/bashio"
 
 # Copy root filesystem
 COPY rootfs /
-COPY config.yaml config.yaml
+COPY config.yaml /config/config.yaml
 
-RUN pip install holidays 
-# TODO: integrate "holidays" into base image
+# Install Python package
+RUN pip install --no-cache-dir holidays
 
-RUN dos2unix ./etc/services.d/example/Abstraction/*.py
+# Convert files to LF format
+RUN find /etc/services.d/example/Abstraction/ -name "*.py" -exec dos2unix {} +
 
-# TODO: Try to convert all files into LF format because github converts them to CRLF and the addon does not work with CLF format
-#RUN find /rootfs -type f -exec dos2unix {} \; 
-
+# Optional: Convert all files in rootfs to LF format
+# RUN find /rootfs -type f \( -name "*.sh" -o -name "*.py" \) -exec dos2unix {} +

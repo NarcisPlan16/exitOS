@@ -60,6 +60,124 @@ class OptimalScheduler:
         # key arguments for those assets that share a common restriction and
         # one execution effects the others assets execution
 
+
+    def __obtainElectricityPrices(self):
+        
+        tomorrow = datetime.today() + timedelta(1)
+        tomorrow_str = tomorrow.strftime('%Y%m%d')
+        url = f"https://www.omie.es/es/file-download?parents%5B0%5D=marginalpdbc&filename=marginalpdbc_{tomorrow_str}.1"
+
+        response = requests.get(url)
+        if response.status_code != "200":
+            today = datetime.today().strftime('%Y%m%d')
+            url = f"https://www.omie.es/es/file-download?parents%5B0%5D=marginalpdbc&filename=marginalpdbc_{today}.1"
+            response = requests.get(url)
+
+        with open("omie_price_pred.csv", 'wb') as f:
+            f.write(response.content)
+
+        hourly_prices = []
+        with open('omie_price_pred.csv', 'r') as file:
+            for line in file.readlines()[1:-1]:
+                components = line.strip().split(';')
+                components.pop(-1) # delete blank character at the end
+                hourly_price = float(components[-1])
+                hourly_prices.append(hourly_price)
+
+        return hourly_prices
+    
+    def __preparePredData(self, type: str):
+        """
+        Prepares the data for the prediction type specified as parameter -type-
+
+        Parameters
+        -----------
+        type : str
+            String specifying the prediction type.
+            * Consumption
+            * Generation
+        -----------
+        Returns
+        -----------
+        Returns a DataFrame with the data needed for the specified type of prediction. For now, only a Dataframe with Timestamp - State 
+        but on new versions would be good to add all relevant attributes so the forecasters can perform better.
+        """
+        
+        dictionary = {'Timestamp': [], 'state': []}
+        res = pd.DataFrame(dictionary)
+
+        today = datetime.today().replace(hour=0, minute=0, second=0)
+        tomorrow = datetime.today() + timedelta(days=1)
+        start_of_tomorrow = datetime(tomorrow.year, tomorrow.month, tomorrow.day)
+
+        today_str =  (today + pd.Timedelta(hours=1)).strftime('%Y-%m-%d')
+        tomorrow_str = tomorrow.strftime('%Y-%m-%d')
+
+        for building_type in self.solucio_run.buildings[type]:  # each building type (Consumption or Generation)
+
+            try:
+                response = requests.get(
+                        f"{ha_url}/api/history/period/" + today_str + "T00:00:00?end_time=" + tomorrow_str + "T00:00:00&filter_entity_id=" + building_type,
+                        headers=headers)
+                                
+                response_data = response.json()[0]
+                data = pd.DataFrame()
+                data = data.from_dict(response_data)
+
+                state_data = data['state']
+                if len(data['state']) < 24:  # No available data for past 24h
+                    
+                    print("[WARNING]: No data found for previous 24h. Searching previous data and using its mean value")
+                    #TODO mean = self.__calcMissingValueFiller(today, building_type) 
+                    mean = 0
+
+                    for i in range (0, 24):
+                        date = pd.to_datetime(today + timedelta(hours=i)).strftime('%Y-%m-%d %H:%M:%S')
+                        res.loc[len(res.index)] = [date, mean]
+
+                else: # Available data for past 24h
+                    for i in range (0, 24): # Add previos hours data rows
+                        date = pd.to_datetime(today + timedelta(hours=i)).strftime('%Y-%m-%d %H:%M:%S')
+                        res.loc[len(res.index)] = [date, state_data[i]]
+
+                # Add prediction rows
+                for i in range (0, 24):
+                    date = pd.to_datetime(start_of_tomorrow + timedelta(hours=i)).strftime('%Y-%m-%d %H:%M:%S')
+                    res.loc[len(res.index)] = [date, 0]
+
+            except KeyError:
+                print(f"[ERROR]: Couldn't get {building_type} state")
+        
+        return res
+    
+    def __calcMissingValueFiller(self, today, building_type):
+
+        found = False
+        i = 0
+        data = pd.DataFrame()
+        mean = 0
+        while i < 7 and not found:
+
+            ini_str = today.strftime('%Y-%m-%d')
+            end_str = (today - timedelta(days=i)).strftime('%Y-%m-%d')
+
+            response = requests.get(
+                        f"{ha_url}/api/history/period/" + ini_str + "T00:00:00?end_time=" + end_str + "T00:00:00&filter_entity_id=" + building_type,
+                        headers=headers)
+                                
+            response_data = response.json()[0]
+            data = data.from_dict(response_data)
+
+            if not len(data['state']) < 24: 
+                found = False
+
+        if not found:
+            print(f"[ERROR]: No recent data found for asset {building_type} on the previous 7 days")
+        else:
+            mean = data['state'].mean()
+            
+        return mean
+
     def __optimize(self):
 
         print("-------------RUNNING COST OPTIMIZATION ALGORITHM-------------")

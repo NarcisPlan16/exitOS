@@ -21,5 +21,7 @@ RUN apt-get install python3-pip -y
 #instal·lem llibreries de python per la gestió de dades i ML
 #RUN apt install g++ gfortran pkgconfig cmake openblas openblas-dev
 RUN pip install --upgrade pip
+
+# Instal·la els paquets Python necessaris
 RUN pip install scikit-learn psutil func_timeout requests numpy pandas pyswarms tomli
 
