@@ -1,0 +1,34 @@
+# Fitxer de configuració número 1 per el ThermalStorage en TOML
+
+
+simulate = "Simu1"
+max_power = 0 # KWh
+active_hours = 24 # active hours
+active_calendar = [0, 23] # Rang horari en format 24h, si volem que pugui estar actiu.
+calendar_range = [0, 5] # Rang en que poden representar-se les potencies (es farà servir per els variable bounds del model
+season_calendar = [1, 1, 1, 1, -1, -1, -1, -1, -1, -1, 1, 1] # Vector per represntar si és estiu (-1) o hivern (1). Les pumps generen fred o calor
+
+[[tanks]]
+name = "TNK1"
+tank_initial = 0.01 # in KWt = 20 ºC
+tank_min = 0.0053 # in KWt = 10 º C
+tank_max = 0.02 #in KWt = 40 ºC
+
+#[[tanks]]  # Nou element a l'array tanks
+#name = "TNK2"
+
+[[pumps]]
+name = "pump1"
+max_power = 0.5 # KWh
+efficiency = 0.99 # in range 0 - 1
+
+[pumps.partial_power] # in range 0 - 1 representing the % of max_power
+    0 = 0
+    1 = 0.2
+    2 = 0.4
+    3 = 0.6
+    4 = 0.8
+    5 = 1
+
+#[[pumps]]  # Nou element a l'array pumps
+#name = "pump2"

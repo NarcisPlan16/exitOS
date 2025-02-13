@@ -1,0 +1,12 @@
+# Fitxer de configuració número 1 per Crane en TOML
+
+simulate = "Simu1"
+max_power = 2 # KWh (power per crane movement)
+active_hours = 24 # active hours
+active_calendar = [0, 23] # Rang horari en format 24h, si volem que pugui estar actiu.
+
+time_per_movement = 4  # minutes
+max_movements_per_hour = 15 # maximum movements per hour
+minimum_movements_per_day = 20 # minimum ammount of movements per day
+
+calendar_range = [0,15] # Rang en que poden representar-se les potencies (es farà servir per els variable bounds del model

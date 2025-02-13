@@ -1,0 +1,29 @@
+# Fitxer de configuració número 2 per les bateries en TOML
+
+simulate = "Simu2"
+active_hours = 24 # active hours
+active_calendar = [0, 23]
+
+cap_actual = 0.5  # Battery at 50%!
+max_capacity = 50  # KWh la capacitat maxima
+efficiency = 0.99  # eficencia de la bateria. El que es perd amb la carrega, pero no en descarrega
+max_roc = 0  # Maximum rate of charge
+max_rod = 0  # Maximum rate of discharge
+
+bat_max = 0.95  # Maxim en tant per 1
+bat_min = 0.05 # Minim en tant per 1
+calendar_range = [0, 9]
+# Rang en que poden representar-se les potencies (es farà servir per els variable bounds del model
+# si és gaire gran, no trobarà solucio... si volem percentatges ha de ser de 0 a 9
+[percentatges_keys]
+    0 = 0.05
+    1 = 0.1
+    2 = 0.2
+    3 = 0.3
+    4 = 0.4
+    5 = 0.5
+    6 = 0.6
+    7 = 0.7
+    8 = 0.8
+    9 = 0.95
+# ANAR MOLT EN COMPTE AMB EL RANG JA QUE POT FER QUE NO TROBI SOLUCIONS

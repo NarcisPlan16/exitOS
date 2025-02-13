@@ -1,0 +1,16 @@
+# Fitxer de configuració número 1 per les bateries en TOML
+
+simulate = "Simu1"
+active_hours = 24 # active hours
+active_calendar = [0, 23]
+
+cap_actual = 32.5  # kwh, Battery at 50%!
+max_capacity = 65  # KWh la capacitat maxima duna bateria de les 3 que hi ha
+max_roc = 20  # KWh el maxim rate of charge
+max_rod = -20  # KWh el maxim rate of discharge
+efficiency = 0.9  # eficencia de la bateria. El que es perd amb la carrega, pero no en descarrega
+
+bat_max = 45.5  # Maxim en KW (0.7 * max_capacity)
+bat_min = 19.5  # Minim en kw (0.3 * max_capacity)
+calendar_range = [-20, 20]
+# Rang en que poden representar-se les potencies (es farà servir per els variable bounds del model

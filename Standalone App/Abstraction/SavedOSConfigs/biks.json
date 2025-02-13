@@ -1,0 +1,339 @@
+{
+    "Buildings": {
+        "Building": {
+            "tots": {
+                "name": "all",
+                "consume_profile": [
+                    100,
+                    100,
+                    150,
+                    150,
+                    160,
+                    180,
+                    600,
+                    1000,
+                    1200,
+                    1100,
+                    1100,
+                    1200,
+                    1200,
+                    1100,
+                    800,
+                    600,
+                    600,
+                    200,
+                    210,
+                    180,
+                    160,
+                    170,
+                    177,
+                    150
+                ]
+            }
+        }
+    },
+    "Consumers": {
+        "Crane": {
+            "crane1": {
+                "name": "crane1",
+                "simulate": "Simu1",
+                "max_power": 2,
+                "active_hours": 24,
+                "active_calendar": [
+                    0,
+                    23
+                ],
+                "time_per_movement": 4,
+                "max_movements_per_hour": 15,
+                "minimum_movements_per_day": 20,
+                "calendar_range": [
+                    0,
+                    15
+                ]
+            }
+        },
+        "EVCharger": {
+            "evc1": {
+                "name": "evc1",
+                "simulate": "Simu2",
+                "max_power": 7.2,
+                "active_hours": 24,
+                "active_calendar": [
+                    0,
+                    23
+                ],
+                "min_daily_charge": 6,
+                "max_daily_charge": 63,
+                "probabilities_of_car": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.5,
+                    0.4,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0.4,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "number_of_chargers": 2,
+                "calendar_range": [
+                    0,
+                    8
+                ],
+                "potencies_keys": {
+                    "0": 0,
+                    "1": 1,
+                    "2": 2,
+                    "3": 4,
+                    "4": 8,
+                    "5": 16,
+                    "6": 32,
+                    "7": 64,
+                    "8": 100
+                }
+            },
+            "evc2": {
+                "name": "evc2",
+                "simulate": "Simu2",
+                "max_power": 7.2,
+                "active_hours": 24,
+                "active_calendar": [
+                    0,
+                    23
+                ],
+                "min_daily_charge": 6,
+                "max_daily_charge": 63,
+                "probabilities_of_car": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.5,
+                    0.4,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0.4,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "number_of_chargers": 2,
+                "calendar_range": [
+                    0,
+                    8
+                ],
+                "potencies_keys": {
+                    "0": 0,
+                    "1": 1,
+                    "2": 2,
+                    "3": 4,
+                    "4": 8,
+                    "5": 16,
+                    "6": 32,
+                    "7": 64,
+                    "8": 100
+                }
+            },
+            "evc3": {
+                "name": "evc3",
+                "simulate": "Simu2",
+                "max_power": 7.2,
+                "active_hours": 24,
+                "active_calendar": [
+                    0,
+                    23
+                ],
+                "min_daily_charge": 6,
+                "max_daily_charge": 63,
+                "probabilities_of_car": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.5,
+                    0.4,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0.4,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "number_of_chargers": 2,
+                "calendar_range": [
+                    0,
+                    8
+                ],
+                "potencies_keys": {
+                    "0": 0,
+                    "1": 1,
+                    "2": 2,
+                    "3": 4,
+                    "4": 8,
+                    "5": 16,
+                    "6": 32,
+                    "7": 64,
+                    "8": 100
+                }
+            },
+            "evc4": {
+                "name": "evc4",
+                "simulate": "Simu2",
+                "max_power": 7.2,
+                "active_hours": 24,
+                "active_calendar": [
+                    0,
+                    23
+                ],
+                "min_daily_charge": 6,
+                "max_daily_charge": 63,
+                "probabilities_of_car": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.5,
+                    0.4,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    0.4,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "number_of_chargers": 2,
+                "calendar_range": [
+                    0,
+                    8
+                ],
+                "potencies_keys": {
+                    "0": 0,
+                    "1": 1,
+                    "2": 2,
+                    "3": 4,
+                    "4": 8,
+                    "5": 16,
+                    "6": 32,
+                    "7": 64,
+                    "8": 100
+                }
+            }
+        }
+    },
+    "EnergySources": {
+        "Battery": {
+            "bat1": {
+                "name": "bat1",
+                "simulate": "Simu1",
+                "active_hours": 24,
+                "active_calendar": [
+                    0,
+                    23
+                ],
+                "cap_actual": 32.5,
+                "max_capacity": 65,
+                "max_roc": 20,
+                "max_rod": -20,
+                "efficiency": 0.9,
+                "bat_max": 45.5,
+                "bat_min": 19.5,
+                "calendar_range": [
+                    -20,
+                    20
+                ]
+            },
+            "bat2": {
+                "name": "bat2",
+                "simulate": "Simu1",
+                "active_hours": 24,
+                "active_calendar": [
+                    0,
+                    23
+                ],
+                "cap_actual": 32.5,
+                "max_capacity": 65,
+                "max_roc": 20,
+                "max_rod": -20,
+                "efficiency": 0.9,
+                "bat_max": 45.5,
+                "bat_min": 19.5,
+                "calendar_range": [
+                    -20,
+                    20
+                ]
+            },
+            "bat3": {
+                "name": "bat3",
+                "simulate": "Simu1",
+                "active_hours": 24,
+                "active_calendar": [
+                    0,
+                    23
+                ],
+                "cap_actual": 32.5,
+                "max_capacity": 65,
+                "max_roc": 20,
+                "max_rod": -20,
+                "efficiency": 0.9,
+                "bat_max": 45.5,
+                "bat_min": 19.5,
+                "calendar_range": [
+                    -20,
+                    20
+                ]
+            }
+        }
+    },
+    "Generators": {}
+}

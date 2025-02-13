@@ -1,0 +1,27 @@
+# Fitxer de configuració número 2 per l'EVCharger en TOML
+
+simulate = "Simu2"
+max_power = 7.2 # KWh
+active_hours = 24 # active hours
+active_calendar = [0, 23] # Rang horari en format 24h, si volem que pugui estar actiu.
+
+min_daily_charge = 6 # Amperatge minim diari, en total, de tots els EVC
+max_daily_charge = 63 # Amperatge maxim diari, en total, de tots els EVC
+probabilities_of_car  = [0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.4, 1, 1, 1, 1, 1, 1, 1, 0.4, 0, 0, 0, 0, 0, 0]
+# probabilitats de que hi hagi un cotxe a cada hora
+number_of_chargers = 2
+calendar_range = [0, 8]
+# Rang en que poden representar-se les potencies (es farà servir per els variable bounds del model
+# si és gaire gran, no trobarà solucio... si volem percentatges ha de ser de 0 a 8
+[potencies_keys]
+    0 = 0
+    1 = 1
+    2 = 2
+    3 = 4
+    4 = 8
+    5 = 16
+    6 = 32
+    7 = 64
+    8 = 100
+# ANAR MOLT EN COMPTE AMB EL RANG JA QUE POT FER QUE NO TROBI SOLUCIONS
+

@@ -1,0 +1,175 @@
+{
+    "Buildings": {
+        "Building": {
+            "lab": {
+                "name": "lab",
+                "consume_profile": [
+                    0.621,
+                    0.605,
+                    0.593,
+                    0.61,
+                    0.589,
+                    0.603,
+                    0.611,
+                    0.607,
+                    0.721,
+                    0.93,
+                    1.091,
+                    1.123,
+                    1.085,
+                    0.947,
+                    0.879,
+                    0.803,
+                    0.795,
+                    0.628,
+                    0.612,
+                    0.595,
+                    0.605,
+                    0.614,
+                    0.602,
+                    0.597
+                ]
+            }
+        }
+    },
+    "Consumers": {
+        "EVCharger": {
+            "EV Chargers": {
+                "name": "EV Chargers",
+                "simulate": "Simu1",
+                "max_power": 7.4,
+                "active_hours": 9,
+                "active_calendar": [
+                    8,
+                    20
+                ],
+                "global_min_daily_charge": 7,
+                "number_of_chargers": 2,
+                "calendar_range": [
+                    0,
+                    1
+                ]
+            }
+        },
+        "HVAC": {
+            "HVAC": {
+                "name": "HVAC",
+                "simulate": "Simu2",
+                "max_power": 2,
+                "active_hours": 24,
+                "active_calendar": [
+                    0,
+                    23
+                ],
+                "temp_initial": 285.15,
+                "temp_exterior": [
+                    10.3,
+                    11.7,
+                    11.9,
+                    11.7,
+                    11.1,
+                    10,
+                    9.8,
+                    10.4,
+                    12.3,
+                    15.2,
+                    17.2,
+                    18.8,
+                    19.7,
+                    20.5,
+                    20.4,
+                    19.3,
+                    17.4,
+                    15.2,
+                    13.6,
+                    14.4,
+                    12.6,
+                    13.3,
+                    12.7,
+                    11.4
+                ],
+                "calendar_range": [
+                    0,
+                    1
+                ]
+            }
+        }
+    },
+    "EnergySources": {
+        "Battery": {
+            "Sonnen": {
+                "name": "Sonnen",
+                "simulate": "Simu1",
+                "active_hours": 24,
+                "active_calendar": [
+                    0,
+                    23
+                ],
+                "cap_actual": 0,
+                "max_capacity": 4,
+                "max_roc": 2.5,
+                "max_rod": -2.5,
+                "efficiency": 0.9,
+                "bat_max": 4,
+                "bat_min": 0,
+                "calendar_range": [
+                    -2.5,
+                    2.5
+                ]
+            }
+        }
+    },
+    "Generators": {},
+    "electricity_prices": [
+        0.108,
+        0.109,
+        0.102,
+        0.099,
+        0.085,
+        0.081,
+        0.08,
+        0.084,
+        0.106,
+        0.109,
+        0.08,
+        0.05,
+        0.045,
+        0.033,
+        0.015,
+        0.007,
+        0.005,
+        0.066,
+        0.107,
+        0.116,
+        0.117,
+        0.11,
+        0.097,
+        0.089
+    ],
+    "electricity_sell_prices": [
+        0.108,
+        0.109,
+        0.102,
+        0.099,
+        0.085,
+        0.081,
+        0.08,
+        0.084,
+        0.106,
+        0.109,
+        0.08,
+        0.05,
+        0.045,
+        0.033,
+        0.015,
+        0.007,
+        0.005,
+        0.066,
+        0.107,
+        0.116,
+        0.117,
+        0.11,
+        0.097,
+        0.089
+    ]
+}

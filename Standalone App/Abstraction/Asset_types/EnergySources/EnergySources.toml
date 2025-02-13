@@ -1,0 +1,7 @@
+simulate = 1
+cap_actual = 1
+max_capacity = 1
+max_roc = 1
+max_rod = 1
+calendar_range = [2]
+active_hours = [2]

@@ -1,0 +1,5 @@
+simulate = 1
+max_power = 1
+active_hours = 1
+calendar_range = [2]
+active_calendar = [2]

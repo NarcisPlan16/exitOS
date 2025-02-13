@@ -1,0 +1,9 @@
+# Fitxer de configuració número 2 per l'HVac en TOML
+
+simulate = "Simu2"
+max_power = 1 # kwh
+active_hours = 24 # active hours
+
+temp_initial = 293.15 # temperatura inicial en K
+temp_exterior = [5,4,4,4,4,3,3,4,4,5,8,11,14,15,15,15,15,15,13,11,10,9,8,8]
+calendar_range = [0,1] # Rang en que poden representar-se les potencies (es farà servir per els variable bounds del model)

@@ -1,0 +1,234 @@
+{
+    "Buildings": {
+        "Building": {
+            "tots": {
+                "name": "all",
+                "consume_profile": [
+                    100,
+                    100,
+                    150,
+                    150,
+                    160,
+                    180,
+                    600,
+                    1000,
+                    1200,
+                    1100,
+                    1100,
+                    1200,
+                    1200,
+                    1100,
+                    800,
+                    600,
+                    600,
+                    200,
+                    210,
+                    180,
+                    160,
+                    170,
+                    177,
+                    150
+                ]
+            }
+        }
+    },
+    "Consumers": {
+        "EVCharger": {
+            "evc1": {
+                "name": "evc1",
+                "simulate": "Simu1",
+                "max_power": 3.7,
+                "active_hours": 9,
+                "active_calendar": [
+                    8,
+                    17
+                ],
+                "global_min_daily_charge": 30,
+                "number_of_chargers": 2,
+                "calendar_range": [
+                    0,
+                    1
+                ]
+            },
+            "evc2": {
+                "name": "evc2",
+                "simulate": "Simu1",
+                "max_power": 3.7,
+                "active_hours": 9,
+                "active_calendar": [
+                    8,
+                    17
+                ],
+                "global_min_daily_charge": 30,
+                "number_of_chargers": 2,
+                "calendar_range": [
+                    0,
+                    1
+                ]
+            }
+        },
+        "HidrogenStation": {
+            "hs": {
+                "name": "hs",
+                "simulate": "Simu1",
+                "max_power": 0,
+                "active_hours": 24,
+                "active_calendar": [
+                    0,
+                    23
+                ],
+                "calendar_range": [
+                    0,
+                    5
+                ],
+                "electrolyzers": [
+                    {
+                        "name": "ELEC1",
+                        "minimum_hour_production": 2,
+                        "conversion_ratio": {
+                            "0": 0,
+                            "10": 0.0077,
+                            "20": 0.0235,
+                            "40": 0.0625,
+                            "60": 0.105,
+                            "100": 0.192
+                        },
+                        "partial_power": {
+                            "0": 0,
+                            "10": 1,
+                            "20": 2,
+                            "40": 4,
+                            "60": 6,
+                            "100": 10
+                        }
+                    }
+                ],
+                "tanks": [
+                    {
+                        "name": "TNK1",
+                        "tank_max_capacity": 33.5,
+                        "tank_min_capacity": 5,
+                        "tank_initial": 15
+                    }
+                ]
+            }
+        },
+        "HVAC": {
+            "hvac": {
+                "name": "hvac",
+                "simulate": "Simu1",
+                "max_power": 0,
+                "active_hours": 9,
+                "active_calendar": [
+                    8,
+                    17
+                ],
+                "temp_min": 294.15,
+                "temp_max": 297.15,
+                "temp_initial": 295.15,
+                "temp_exterior": [
+                    298.15,
+                    298.15,
+                    298.15,
+                    298.15,
+                    298.15,
+                    298.15,
+                    298.15,
+                    298.15,
+                    298.15,
+                    298.15,
+                    298.15,
+                    298.15,
+                    298.15,
+                    298.15,
+                    298.15,
+                    298.15,
+                    298.15,
+                    298.15,
+                    298.15,
+                    298.15,
+                    298.15,
+                    298.15,
+                    298.15,
+                    298.15
+                ],
+                "calendar_range": [
+                    0,
+                    1
+                ],
+                "R": 200,
+                "C": 100,
+                "PC": -0.1
+            }
+        }
+    },
+    "EnergySources": {},
+    "Generators": {
+        "PV": {
+            "PV": {
+                "name": "PV",
+                "max_output": 40,
+                "min_output": 2,
+                "production": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    5,
+                    10,
+                    30,
+                    35,
+                    35,
+                    35,
+                    30,
+                    10,
+                    5,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "WT": {
+            "WT": {
+                "name": "WT",
+                "max_output": 50,
+                "min_output": 2,
+                "production": [
+                    2,
+                    20,
+                    50,
+                    50,
+                    20,
+                    3,
+                    3,
+                    2,
+                    1,
+                    15,
+                    20,
+                    10,
+                    10,
+                    10,
+                    20,
+                    40,
+                    20,
+                    10,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+# Fitxer de configuració número 1 per l'EVCharger en TOML
+
+simulate = "Simu1"
+max_power = 3.7 # KWh
+active_hours = 9 # active hours
+active_calendar = [8, 17] # Rang horari en format 24h, si volem que pugui estar actiu.
+
+global_min_daily_charge = 30 # KWh minim diari entre tots els evcharger
+number_of_chargers = 2
+calendar_range = [0,1] # Rang en que poden representar-se les potencies (es farà servir per els variable bounds del model

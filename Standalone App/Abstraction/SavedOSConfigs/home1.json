@@ -1,0 +1,114 @@
+{
+    "Buildings": {
+        "Building": {
+            "Home": {
+                "name": "Home",
+                "consume_profile": [
+                    1.7,
+                    0.8,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.5,
+                    1.5,
+                    1.5,
+                    0.5,
+                    0.5,
+                    0.5,
+                    1.5,
+                    2,
+                    1.7,
+                    1.5,
+                    0.5,
+                    0.5,
+                    1,
+                    1,
+                    2,
+                    2,
+                    2
+                ]
+            }
+        }
+    },
+    "Consumers": {
+        "EVCharger": {
+            "EVC 1": {
+                "name": "EVC 1",
+                "simulate": "Simu1",
+                "max_power": 4,
+                "active_hours": 8,
+                "active_calendar": [
+                    0,
+                    7
+                ],
+                "global_min_daily_charge": 24,
+                "number_of_chargers": 1,
+                "calendar_range": [
+                    0,
+                    1
+                ]
+            }
+        }
+    },
+    "EnergySources": {
+        "Battery": {
+            "BAT 1": {
+                "name": "BAT 1",
+                "simulate": "Simu1",
+                "active_hours": 24,
+                "active_calendar": [
+                    0,
+                    23
+                ],
+                "cap_actual": 32.5,
+                "max_capacity": 65,
+                "max_roc": 20,
+                "max_rod": -20,
+                "efficiency": 0.9,
+                "bat_max": 45.5,
+                "bat_min": 19.5,
+                "calendar_range": [
+                    -20,
+                    20
+                ]
+            }
+        }
+    },
+    "Generators": {
+        "PV": {
+            "PV": {
+                "name": "PV",
+                "max_output": 9,
+                "min_output": 0.2,
+                "production": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.2,
+                    1,
+                    4,
+                    7.5,
+                    9,
+                    9,
+                    9,
+                    7.5,
+                    6,
+                    3,
+                    1,
+                    0.2,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        }
+    }
+}

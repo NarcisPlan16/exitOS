@@ -1,0 +1,5 @@
+# Configuration for the WT plant
+
+max_output = 50  # KWh
+min_output = 2  # KWh
+production = [2,20,50,50,20,3,3,2,1,15,20,10,10,10,20,40,20,10,0,0,0,0,0,0]

@@ -1,0 +1,39 @@
+# Fitxer de configuració número 1 per la HidrogenStation en TOML
+
+simulate = "Simu1"
+max_power = 0  # KWh
+active_hours = 24 # active hours
+active_calendar = [0, 23] # Rang horari en format 24h, si volem que pugui estar actiu.
+calendar_range = [0, 5] # Rang en que poden representar-se les potencies (es farà servir per els variable bounds del model
+
+# Per declarar una array de data structures, només cal fer [[nom_array]] cada vegada que s'hi vulgui afegir un nou element
+[[electrolyzers]]
+name = "ELEC1"
+minimum_hour_production = 2 # Quantes hores seguides volem que estigui com a mínim prodïnt
+[electrolyzers.conversion_ratio]
+    0 = 0
+    10 = 0.0077
+    20 = 0.0235
+    40 = 0.0625
+    60 = 0.105
+    100 = 0.192
+[electrolyzers.partial_power]
+    0 = 0
+    10 = 1
+    20 = 2
+    40 = 4
+    60 = 6
+    100 = 10
+
+#[[electrolyzers]]  # Nou element a l'array electrolyzers
+# name = "ELEC2"
+
+
+[[tanks]]
+name = "TNK1"
+tank_max_capacity = 33.5  # Kg
+tank_min_capacity = 5  # Kg  - per garantir poder carregar minim un cotxe
+tank_initial = 15  # Kg l'estat del tank a l'inici de la simulacio en Kg.
+
+#[[tanks]]  # Nou element a l'array tanks
+#name = "TNK2"

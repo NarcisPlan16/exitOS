@@ -1,0 +1,5 @@
+# Configuration for the PV plant
+
+max_output = 40  # KWh
+min_output = 0  # KWh
+production = [0,0,0,0,0,0,0,0,0.1038,0.6017,1.2058,1.7302,2.0114,1.9906,1.8060,1.1865,0.0582,0,0,0,0,0,0,0] # Kw
